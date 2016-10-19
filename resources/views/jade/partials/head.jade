@@ -1,0 +1,57 @@
+meta(charset='utf-8')
+meta(http-equiv='X-UA-Compatible' content='IE=edge')
+meta(name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0')
+meta(name='format-detection' content='telephone=no')
+
+//- TODO: change meta description
+meta(name='description' content='This is the SEO description of the.')
+
+//- TODO: change og:site_name
+meta(property='og:site_name' content='Site name')
+//- TODO: change og:title
+meta(property='og:title' content='Facebook title')
+//- TODO: change og:description
+meta(property='og:description' content='Facebook description')
+//- TODO: change og:type
+meta(property='og:type' content='website')
+//- TODO: change og:url
+meta(property='og:url' content='http://site.com')
+//- TODO: change og:image
+meta(property='og:image' content='http://site.com/images/share.jpg')
+//- TODO: change fb:app_id
+meta(property='fb:app_id' content='app_id_for_share')
+
+//- TODO: change Title
+title Titles
+
+//-
+  TODO: set up favicon
+  <link rel="shortcut icon" href="favicon.ico" />
+
+//-
+  TODO: include css
+  <!-- Development mode -->
+link(rel='stylesheet' type='text/css' media='all' href='public/css/style.css')
+//-
+  Production mode (minified)
+  link(rel='stylesheet' type='text/css' media='all' href=''/public/build/css/style.css')
+
+script(type='text/javascript' src='/js/modernizr.min.js')
+
+<!--[if lt IE 9]>
+script(type='text/javascript' src='/js/respond.min.js')
+<![endif]-->
+
+//-
+  TODO: uncomment and change UA-CODE
+  script.
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-CODE', 'auto');
+    ga('send', 'pageview');
+
+//-
+  TODO:Uncomment and change ip for livereload
+  script(src='http://10.0.1.89:35729/livereload.js')

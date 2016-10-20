@@ -19,7 +19,7 @@ var fs = require('fs');
 var yamlData = require('gulp-yaml-data');
 var MongoClient = require('mongodb').MongoClient;
 
-gulp.task('default', ['minify-css', 'minify-js', 'templates'], function() {
+gulp.task('default', ['minify-css', 'minify-vendor-js', 'minify-js', 'templates'], function() {
   console.log('default task');
 });
 
@@ -73,7 +73,7 @@ gulp.task('babel', ['js-hint'], function() {
 });
 
 gulp.task('minify-js', ['babel'/*js-hint*/], function() {
-  return gulp.src('./site/public/js/**/*.js')
+  return gulp.src(['./site/public/js/**/*.js', '!./site/public/js/vendor/*.js'])
     .pipe(sourcemaps.init())
     .pipe(uglify())
     .pipe(concat('application.min.js'))
@@ -117,6 +117,30 @@ gulp.task('templates', ['jade-lint'], function() {
       console.log(err);
     }))
     .pipe(gulp.dest('./site'))
+});
+
+/* Vendor js */
+gulp.task('minify-vendor-js', ['vendor-js'/*js-hint*/], function() {
+  gulp.src(['./site/public/js/vendor/*.js', '!./site/public/js/vendor/Modernizr.js', '!./site/public/js/vendor/respond.js'])
+    .pipe(sourcemaps.init())
+    .pipe(uglify())
+    .pipe(concat('vendor.min.js'))
+    .pipe(sourcemaps.write('./maps'))
+    .pipe(gulp.dest('./site/public/build/js'));
+
+  gulp.src(['./site/public/js/vendor/Modernizr.js'])
+    .pipe(gulp.dest('./site/public/build/js/Modernizr.min.js'));
+
+  gulp.src(['./site/public/js/vendor/respond.js'])
+    .pipe(gulp.dest('./site/public/build/js/respond.min.js'));
+});
+
+gulp.task('vendor-js', function() {
+    gulp.src([
+        './bower_components/modernizr/src/Modernizr.js',
+        './bower_components/respond/src/respond.js'
+    ])
+    .pipe(gulp.dest('./site/public/js/vendor/'));
 });
 
 /* Serve change ip */

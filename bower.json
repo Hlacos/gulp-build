@@ -1,0 +1,22 @@
+{
+  "name": "gulp-build",
+  "description": "Make sitebuild using gulp, scss, babel and jade",
+  "authors": [
+    "Heiszmann László"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "modernizr": "^3.3.1",
+    "respond": "^1.4.2"
+  },
+  "scripts": {
+    "postinstall": "gulp minify-vendor-js"
+  }
+}

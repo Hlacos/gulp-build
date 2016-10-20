@@ -4,23 +4,19 @@ html
     body
       //-
         block content
-    
-      div
-        p asd
-        
-      //-
-        TODO: include js
-        Vendor js if needed (jQuery...)
-        script(type='text/javascript' src='/js/vendor.min.js')
-    
-      //- Development mode
-      script(type='text/javascript' src='public/js/application.js')
-      script(type='text/javascript' src='public/js/modules/module.js')
-      
-      //-
-        Production mode
-        script(type='text/javascript' src='/public/build/js/application.min.js')
 
       ul
         each article in articles
           li= article.name
+      //-
+        TODO: include js
+        Vendor js if needed (jQuery...)
+        script(type='text/javascript' src='/js/vendor.min.js')
+        
+      //- Development mode
+      script(type='text/javascript' src='public/js/application.js')
+      script(type='text/javascript' src='public/js/modules/module.js')
+          
+      //-
+        Production mode
+        script(type='text/javascript' src='/public/build/js/application.min.js')
